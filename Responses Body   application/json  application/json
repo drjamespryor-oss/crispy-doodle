@@ -1,0 +1,55 @@
+JSON Response structure for executive compensation endpoint.
+
+array of:
+CIK
+string
+Name
+string
+Role
+string
+Year
+integer
+Salary
+number
+Bonus
+number
+StockAndOptionAwards
+number
+TotalCompensation
+number
+filerName
+string
+fileDate
+string
+uploaded
+string<date-time>
+Token
+:
+ticker*
+:
+page
+:
+page_size
+:
+Send API Request
+library(httr)
+
+url <- "https://api.quiverquant.com/beta/historical/executivecompensation/{ticker}"
+
+response <- VERB("GET", url, add_headers('Authorization' = 'Bearer 123'), content_type("application/octet-stream"), accept("application/json"))
+
+content(response, "text")
+[
+  {
+    "CIK": "string",
+    "Name": "string",
+    "Role": "string",
+    "Year": 0,
+    "Salary": 0,
+    "Bonus": 0,
+    "StockAndOptionAwards": 0,
+    "TotalCompensation": 0,
+    "filerName": "string",
+    "fileDate": "string",
+    "uploaded": "2019-08-24T14:15:22Z"
+  }
